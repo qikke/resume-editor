@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume editor</title>
+  <link href="css/index.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="page" id="app">
+  <div class="sidebar">
+    <div class="top">
+      <button>保存</button>
+      <button>分享</button>
+      <button>打印</button>
+      <button>换肤</button>
+    </div>
+    <div class="bottom">
+      <button>登出</button>
+    </div>
+  </div>
+  <main>
+    <div class="introduction">
+      <editable-span v-bind=""></editable-span>
+      <p>{{resume.birthday}}|{{resume.jobTittle}}|{{resume.gender}}|{{resume.email}}|{{resume.phone}}</p>
+    </div>
+    <div class="skills">
+      <h2>技能</h2>
+      <ol>
+        <li>静态页面制作</li>
+        <li>静态页面制作</li>
+        <li>静态页面制作</li>
+        <li>静态页面制作</li>
+      </ol>
+    </div>
+    <div class="projects">
+      <h2>项目经历</h2>
+      <ol>
+        <li>
+          <h3>我的简历</h3>
+          <p>http://xxxx.com</p>
+          <p class="intro">CSS3 H5 ES6</p>
+          <p>xxxx xx xxxxx xxxxx xxxx xxxxxxx xxx xxxxxx xx xxxx xx xxx xx xx xxxxx xxxxxxx xxx xxxxxx xxxxx xxxx xxx xx
+            xxxx xxx xxx xxxx</p>
+        </li>
+        <li>
+          <h3>我的简历</h3>
+          <p>http://xxxx.com</p>
+          <p class="intro">CSS3 H5 ES6</p>
+          <p>xxxx xx xxxxx xxxxx xxxx xxxxxxx xxx xxxxxx xx xxxx xx xxx xx xx xxxxx xxxxxxx xxx xxxxxx xxxxx xxxx xxx xx
+            xxxx xxx xxx xxxx</p>
+        </li>
+        <li>
+          <h3>我的简历</h3>
+          <p>http://xxxx.com</p>
+          <p class="intro">CSS3 H5 ES6</p>
+          <p>xxxx xx xxxxx xxxxx xxxx xxxxxxx xxx xxxxxx xx xxxx xx xxx xx xx xxxxx xxxxxxx xxx xxxxxx xxxxx xxxx xxx xx
+            xxxx xxx xxx xxxx</p>
+        </li>
+      </ol>
+    </div>
+  </main>
+
+</div>
+
+<script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+<script src="js/AV.js"></script>
+<script src="../vendors/vue.min.js"></script>
+
+<script>
+  {
+    Vue.component('editable-span', {
+      props: ['value'],
+      template: `
+        <span>
+          <span v-if="!editing">{{value}}</span>
+          <input v-if="editing" type="text" :value="value" @input="triggerEdit">
+          <button @click="editing = !editing">edit</button>
+        </span>
+      `,
+      data() {
+        return {
+          editing: false
+        }
+      },
+      methods:{
+        triggerEdit(e){
+          this.$emit('edit',e.target.value)
+        }
+      }
+    })
+
+
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        isEdited: false,
+        resume: {
+          name: '姓名',
+          gender: '男',
+          birthday: '1990年1月',
+          jobTittle: '前端工程师',
+          phone: '13552211231',
+          email: 'xxxxxx@qq.com'
+        }
+      },
+      methods: {
+        x(e) {
+
+        }
+      }
+    })
+
+  }
+</script>
+</body>
+</html>
