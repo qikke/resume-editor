@@ -9,13 +9,13 @@
 <div class="page" id="app">
   <div class="sidebar">
     <div class="top">
-      <button>保存</button>
+      <button @click="onClickSave">保存</button>
       <button>分享</button>
       <button>打印</button>
       <button>换肤</button>
     </div>
     <div class="bottom">
-      <button>登出</button>
+      <button @click="AV.User.logOut()">登出</button>
     </div>
   </div>
   <main>
@@ -23,10 +23,14 @@
       <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
       <p>
         <editable-span :value="resume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
-        |<editable-span :value="resume.jobTittle" @edit="onEdit('jobTittle',$event)"></editable-span>
-        |<editable-span :value="resume.gender" @edit="onEdit('gender',$event)"></editable-span>
-        |<editable-span :value="resume.email" @edit="onEdit('email',$event)"></editable-span>
-        |<editable-span :value="resume.phone" @edit="onEdit('phone',$event)"></editable-span>
+        |
+        <editable-span :value="resume.jobTittle" @edit="onEdit('jobTittle',$event)"></editable-span>
+        |
+        <editable-span :value="resume.gender" @edit="onEdit('gender',$event)"></editable-span>
+        |
+        <editable-span :value="resume.email" @edit="onEdit('email',$event)"></editable-span>
+        |
+        <editable-span :value="resume.phone" @edit="onEdit('phone',$event)"></editable-span>
       </p>
     </div>
     <div class="skills">
@@ -65,7 +69,36 @@
       </ol>
     </div>
   </main>
-
+  <div v-show="registerVisible" class="register" @submit.prevent="onSubmitRegister">
+    <h2>注册</h2>
+    <form>
+      <div class="row">
+        <label>用户名 <input type="text" v-model="registerInfo.username"></label>
+      </div>
+      <div class="row">
+        <label>密码 <input type="text" v-model="registerInfo.password"></label>
+      </div>
+      <div class="row">
+        <label>邮箱 <input type="text" v-model="registerInfo.email"></label>
+      </div>
+      <button type="submit">确认注册</button>
+      <button type="button" @click="registerVisible = false">关闭</button>
+    </form>
+  </div>
+  <div v-show="logInVisible" class="logIn" @submit.prevent="onSubmitLogIn">
+    <h2>登录</h2>
+    <form>
+      <div class="row">
+        <label>账号 <input type="text" v-model="logInInfo.username"></label>
+      </div>
+      <div class="row">
+        <label>密码 <input type="text" v-model="logInInfo.password"></label>
+      </div>
+      <button type="submit">登录</button>
+      <button type="button" @click="triggerState">注册</button>
+      <button type="button" @click="logInVisible = false">关闭</button>
+    </form>
+  </div>
 
 </div>
 

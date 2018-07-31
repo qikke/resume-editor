@@ -10,6 +10,7 @@ ul, ol, li {
 
 .page {
   display: flex;
+  position: relative;
 }
 
 .page .sidebar {
@@ -51,10 +52,12 @@ ul, ol, li {
 .page > main h2 {
   margin-bottom: 20px;
 }
-.page > main .editableSpan{
+
+.page > main .editableSpan {
   position: relative;
 }
-.page > main .editableSpan button{
+
+.page > main .editableSpan button {
   width: 50px;
   display: none;
   position: absolute;
@@ -63,8 +66,8 @@ ul, ol, li {
   z-index: 1;
 }
 
-.page > main .editableSpan:hover button{
-  display:block;
+.page > main .editableSpan:hover button {
+  display: block;
 }
 
 .page > main .skills > ol {
@@ -100,4 +103,17 @@ ul, ol, li {
 .page > main .projects > ol > li .intro {
   flex-grow: 1;
   text-align: right;
+}
+
+.page .register, .page .logIn {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto auto;
+  border: 1px solid red;
+  background: white;
 }
