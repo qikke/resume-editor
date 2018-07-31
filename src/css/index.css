@@ -51,6 +51,21 @@ ul, ol, li {
 .page > main h2 {
   margin-bottom: 20px;
 }
+.page > main .editableSpan{
+  position: relative;
+}
+.page > main .editableSpan button{
+  width: 50px;
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+.page > main .editableSpan:hover button{
+  display:block;
+}
 
 .page > main .skills > ol {
   text-align: center;

@@ -20,8 +20,14 @@
   </div>
   <main>
     <div class="introduction">
-      <editable-span v-bind=""></editable-span>
-      <p>{{resume.birthday}}|{{resume.jobTittle}}|{{resume.gender}}|{{resume.email}}|{{resume.phone}}</p>
+      <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
+      <p>
+        <editable-span :value="resume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
+        |<editable-span :value="resume.jobTittle" @edit="onEdit('jobTittle',$event)"></editable-span>
+        |<editable-span :value="resume.gender" @edit="onEdit('gender',$event)"></editable-span>
+        |<editable-span :value="resume.email" @edit="onEdit('email',$event)"></editable-span>
+        |<editable-span :value="resume.phone" @edit="onEdit('phone',$event)"></editable-span>
+      </p>
     </div>
     <div class="skills">
       <h2>技能</h2>
@@ -60,57 +66,14 @@
     </div>
   </main>
 
+
 </div>
 
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
 <script src="js/AV.js"></script>
 <script src="../vendors/vue.min.js"></script>
 
-<script>
-  {
-    Vue.component('editable-span', {
-      props: ['value'],
-      template: `
-        <span>
-          <span v-if="!editing">{{value}}</span>
-          <input v-if="editing" type="text" :value="value" @input="triggerEdit">
-          <button @click="editing = !editing">edit</button>
-        </span>
-      `,
-      data() {
-        return {
-          editing: false
-        }
-      },
-      methods:{
-        triggerEdit(e){
-          this.$emit('edit',e.target.value)
-        }
-      }
-    })
-
-
-    let vm = new Vue({
-      el: '#app',
-      data: {
-        isEdited: false,
-        resume: {
-          name: '姓名',
-          gender: '男',
-          birthday: '1990年1月',
-          jobTittle: '前端工程师',
-          phone: '13552211231',
-          email: 'xxxxxx@qq.com'
-        }
-      },
-      methods: {
-        x(e) {
-
-        }
-      }
-    })
-
-  }
-</script>
+<script src="./js/editable-span.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
