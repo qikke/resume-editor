@@ -21,10 +21,39 @@
         jobTittle: '前端工程师',
         phone: '13552211231',
         email: 'xxxxxx@qq.com',
-        skills: [{name: '技能名称', description: '技能描述'}, {name: '技能名称', description: '技能描述'}, {name: '技能名称',description: '技能描述'}, {name: '技能名称', description: '技能描述'}],
-        projects:[{name:'项目名称',url:'http://xxxxxx.com',skills:'CSS3 H5 ES6',description:'项目描述'},{name:'项目名称',url:'http://xxxxxx.com',skills:'CSS3 H5 ES6',description:'项目描述'}],
+        skills: [{name: '技能名称', description: '技能描述'}, {name: '技能名称', description: '技能描述'}, {
+          name: '技能名称',
+          description: '技能描述'
+        }, {name: '技能名称', description: '技能描述'}],
+        projects: [{name: '项目名称', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: '项目描述'}, {
+          name: '项目名称',
+          url: 'http://xxxxxx.com',
+          skills: 'CSS3 H5 ES6',
+          description: '项目描述'
+        }],
       },
-      currentUser: null
+      previewResume: {
+        name: '姓名',
+        gender: '男',
+        birthday: '1990年1月',
+        jobTittle: '前端工程师',
+        phone: '13552211231',
+        email: 'xxxxxx@qq.com',
+        skills: [{name: '技能名称', description: '技能描述'}, {name: '技能名称', description: '技能描述'}, {
+          name: '技能名称',
+          description: '技能描述'
+        }, {name: '技能名称', description: '技能描述'}],
+        projects: [{name: '项目名称', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: '项目描述'}, {
+          name: '项目名称',
+          url: 'http://xxxxxx.com',
+          skills: 'CSS3 H5 ES6',
+          description: '项目描述'
+        }],
+      },
+      currentUser: null,
+      shareWindowVisible: false,
+      shareUrl: undefined,
+      mode: 'edit',  //'preview'
     },
     methods: {
       onEdit(key, value) {
@@ -45,7 +74,6 @@
         } else {
           this.resume[key] = value
         }
-        console.log(this.resume.skills)
       },
       onClickSave() {
         if (this.currentUser) {
@@ -85,7 +113,8 @@
       },
       onSubmitLogIn() {
         AV.User.logIn(this.logInInfo.username, this.logInInfo.password).then((loggedInUser) => {
-          this.updateLogInState()
+          this.currentUser = AV.User.current()
+          this.getResume()
           alert('登录成功')
           this.logInVisible = false
         }, function (error) {
@@ -106,14 +135,23 @@
         alert('登出成功')
         window.location.reload()
       },
-      updateLogInState() {
-        this.currentUser = AV.User.current()
-        this.getResume()
+      initState() {
+        //判断是预览模式还是编辑模式
+        let url = window.location.href
+        let reg = /\?_id=(.+)/
+        if (reg.test(url)) {
+          this.mode = 'preview'
+          this.getResume(reg.exec(url)[1])
+        } else {
+          this.mode = 'edit'
+          this.currentUser = AV.User.current()
+          this.getResume(this.currentUser.id)
+        }
       },
-      getResume() {
-        if (this.currentUser) {
+      getResume(id) {
+        if (id) {
           var query = new AV.Query('User')
-          query.get(this.currentUser.id).then((user) => {
+          query.get(id).then((user) => {
             Object.assign(this.resume, JSON.parse(user.attributes.resume))
           }, function (error) {
             console.log(error)
@@ -126,14 +164,27 @@
       delSkills(index) {
         this.resume.skills.splice(index, 1)
       },
-      addProjects(){
-        this.resume.projects.push({name:'项目名称',url:'http://xxxxxx.com',skills:'CSS3 H5 ES6',description:'项目描述'})
+      addProjects() {
+        this.resume.projects.push({name: '项目名称', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: '项目描述'})
       },
-      delProjects(index){
+      delProjects(index) {
         this.resume.projects.splice(index, 1)
+      },
+      share() {
+        if (!this.currentUser) {
+          alert('请先登陆！')
+          return
+        }
+        this.shareWindowVisible = true
+        this.shareUrl = window.location.host + window.location.pathname + '?_id=' + this.currentUser.id
+      },
+      onExitPreview(){
+        let newUrl = window.location.href.replace(/\?_id=.+/, '')
+        window.location.href = newUrl
       }
     }
   })
 
-  app.updateLogInState()
+  //初始化一下
+  app.initState()
 }

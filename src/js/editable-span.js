@@ -1,9 +1,9 @@
 Vue.component('editable-span',{
-  props:['value'],
+  props:['value','mode'],
   template:` <span class="editableSpan">
         <span v-show="!isEditable">{{value}}</span>
         <input v-show="isEditable" type="text" :value="value" @input="inputChange">
-        <button @click="triggerEditable">{{tip}}</button>
+        <button @click="triggerEditable" v-if="mode === 'edit'">{{tip}}</button>
       </span>`,
   data:function(){
     return {

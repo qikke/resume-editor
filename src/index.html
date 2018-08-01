@@ -7,10 +7,10 @@
 </head>
 <body>
 <div class="page" id="app">
-  <div class="sidebar">
+  <div class="sidebar" v-if="mode === 'edit'">
     <div class="top">
       <button @click="onClickSave">保存</button>
-      <button>分享</button>
+      <button @click="share">分享</button>
       <button>打印</button>
       <button>换肤</button>
     </div>
@@ -20,17 +20,17 @@
   </div>
   <main>
     <div class="introduction">
-      <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
+      <editable-span :value="resume.name" :mode="mode" @edit="onEdit('name',$event)"></editable-span>
       <p>
-        <editable-span :value="resume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
+        <editable-span :value="resume.birthday" :mode="mode" @edit="onEdit('birthday',$event)"></editable-span>
         |
-        <editable-span :value="resume.jobTittle" @edit="onEdit('jobTittle',$event)"></editable-span>
+        <editable-span :value="resume.jobTittle" :mode="mode" @edit="onEdit('jobTittle',$event)"></editable-span>
         |
-        <editable-span :value="resume.gender" @edit="onEdit('gender',$event)"></editable-span>
+        <editable-span :value="resume.gender" :mode="mode" @edit="onEdit('gender',$event)"></editable-span>
         |
-        <editable-span :value="resume.email" @edit="onEdit('email',$event)"></editable-span>
+        <editable-span :value="resume.email" :mode="mode" @edit="onEdit('email',$event)"></editable-span>
         |
-        <editable-span :value="resume.phone" @edit="onEdit('phone',$event)"></editable-span>
+        <editable-span :value="resume.phone" :mode="mode" @edit="onEdit('phone',$event)"></editable-span>
       </p>
     </div>
     <div class="skills">
@@ -38,14 +38,16 @@
       <ol>
         <li v-for="(skill,index) in resume.skills">
           <div>
-            <editable-span :value="skill.name" @edit="onEdit(`skills[${index}].name`,$event)"></editable-span>
+            <editable-span :value="skill.name" :mode="mode"
+                           @edit="onEdit(`skills[${index}].name`,$event)"></editable-span>
           </div>
           <div>
-            <editable-span :value="skill.description" @edit="onEdit(`skills[${index}].description`,$event)"></editable-span>
+            <editable-span :value="skill.description" :mode="mode"
+                           @edit="onEdit(`skills[${index}].description`,$event)"></editable-span>
           </div>
-          <span class="del" @click="delSkills(index)">x</span>
+          <span class="del" @click="delSkills(index)" v-if="mode === 'edit'">x</span>
         </li>
-        <li @click="addSkills">+</li>
+        <li @click="addSkills" v-if="mode === 'edit'">+</li>
       </ol>
     </div>
     <div class="projects">
@@ -53,20 +55,24 @@
       <ol>
         <li v-for="(project,index) in resume.projects">
           <h3>
-            <editable-span :value="project.name" @edit="onEdit(`projects[${index}].name`,$event)"></editable-span>
+            <editable-span :value="project.name" :mode="mode"
+                           @edit="onEdit(`projects[${index}].name`,$event)"></editable-span>
           </h3>
           <p>
-            <editable-span :value="project.url" @edit="onEdit(`projects[${index}].url`,$event)"></editable-span>
+            <editable-span :value="project.url" :mode="mode"
+                           @edit="onEdit(`projects[${index}].url`,$event)"></editable-span>
           </p>
           <p class="intro">
-            <editable-span :value="project.skills" @edit="onEdit(`projects[${index}].skills`,$event)"></editable-span>
+            <editable-span :value="project.skills" :mode="mode"
+                           @edit="onEdit(`projects[${index}].skills`,$event)"></editable-span>
           </p>
           <p class="description">
-            <editable-span :value="project.description" @edit="onEdit(`projects[${index}].description`,$event)"></editable-span>
+            <editable-span :value="project.description" :mode="mode"
+                           @edit="onEdit(`projects[${index}].description`,$event)"></editable-span>
           </p>
-          <span class="del" @click="delProjects(index)">x</span>
+          <span class="del" @click="delProjects(index)" v-if="mode === 'edit'">x</span>
         </li>
-        <li @click="addProjects">+</li>
+        <li @click="addProjects" v-if="mode === 'edit'">+</li>
       </ol>
     </div>
   </main>
@@ -103,7 +109,14 @@
       <button type="button" @click="logInVisible = false">关闭</button>
     </form>
   </div>
-
+  <!--分享框-->
+  <div class="share" v-show="shareWindowVisible" v-cloak>
+    <h2>分享链接</h2>
+    <textarea cols="60" rows="10" readonly>{{shareUrl}}</textarea>
+    <button @click="shareWindowVisible = false">关闭</button>
+  </div>
+  <!--退出预览按钮-->
+  <button v-if="mode === 'preview'" class="exitPreview" @click="onExitPreview">退出预览</button>
 </div>
 
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
