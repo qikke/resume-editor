@@ -1,81 +1,139 @@
-let vm = new Vue({
-  el: '#app',
-  data: {
-    isEdited: false,
-    registerVisible: false,
-    logInVisible: false,
-    registerInfo: {
-      username: '',
-      password: '',
-      email: ''
+{
+  let app = new Vue({
+    el: '#app',
+    data: {
+      isEdited: false,
+      registerVisible: false,
+      logInVisible: false,
+      registerInfo: {
+        username: '',
+        password: '',
+        email: ''
+      },
+      logInInfo: {
+        username: '',
+        password: ''
+      },
+      resume: {
+        name: '姓名',
+        gender: '男',
+        birthday: '1990年1月',
+        jobTittle: '前端工程师',
+        phone: '13552211231',
+        email: 'xxxxxx@qq.com',
+        skills: [{name: '技能名称', description: '技能描述'}, {name: '技能名称', description: '技能描述'}, {name: '技能名称',description: '技能描述'}, {name: '技能名称', description: '技能描述'}],
+        projects:[{name:'项目名称',url:'http://xxxxxx.com',skills:'CSS3 H5 ES6',description:'项目描述'},{name:'项目名称',url:'http://xxxxxx.com',skills:'CSS3 H5 ES6',description:'项目描述'}],
+      },
+      currentUser: null
     },
-    logInInfo: {
-      username: '',
-      password: ''
-    },
-    resume: {
-      name: '姓名',
-      gender: '男',
-      birthday: '1990年1月',
-      jobTittle: '前端工程师',
-      phone: '13552211231',
-      email: 'xxxxxx@qq.com'
-    }
-  },
-  methods: {
-    onEdit(name, value) {
-      this.resume[name] = value
-    },
-    onClickSave() {
-      let currentUser = AV.User.current()
-      if (currentUser) {
-        var user = AV.Object.createWithoutData('User', currentUser.id)
-        // 修改属性
-        user.set('resume', JSON.stringify(this.resume))
-        // 保存到云端
-        user.save()
-        alert('简历保存成功')
-      }
-      else {
-        this.logInVisible = true
-      }
-    },
-    onSubmitRegister() {
-      // 新建 AVUser 对象实例
-      let user = new AV.User()
-      // 设置用户名
-      user.setUsername(this.registerInfo.username)
-      // 设置密码
-      user.setPassword(this.registerInfo.password)
-      // 设置邮箱
-      user.setEmail(this.registerInfo.email)
-      user.signUp().then((loggedInUser) => {
-        alert('注册成功，请登录')
+    methods: {
+      onEdit(key, value) {
+        let reg = /\[(\d+)\]/g
+        //如果参数是带[]的
+        if (reg.test(key)) {
+          //提取参数name中的index
+          key = key.replace(reg, (match, number) => `.${number}`)
+          let keys = key.split('.')
+          let result = this.resume
+          for (let i = 0; i < keys.length; i++) {
+            if (i === keys.length - 1) {
+              result[keys[i]] = value
+            } else {
+              result = result[keys[i]]
+            }
+          }
+        } else {
+          this.resume[key] = value
+        }
+        console.log(this.resume.skills)
+      },
+      onClickSave() {
+        if (this.currentUser) {
+          let user = AV.Object.createWithoutData('User', this.currentUser.id)
+          // 修改属性
+          user.set('resume', JSON.stringify(this.resume))
+          // 保存到云端
+          user.save()
+          alert('简历保存成功')
+          // window.location.reload()
+        }
+        else {
+          alert('请先登录')
+          this.logInVisible = true
+        }
+      },
+      onSubmitRegister() {
+        // 新建 AVUser 对象实例
+        let user = new AV.User()
+        // 设置用户名
+        user.setUsername(this.registerInfo.username)
+        // 设置密码
+        user.setPassword(this.registerInfo.password)
+        // 设置邮箱
+        user.setEmail(this.registerInfo.email)
+        user.signUp().then((loggedInUser) => {
+          alert('注册成功，请登录')
+          AV.User.logOut()
+          this.triggerState()
+        }, function (error) {
+          if (error.code === 202) {
+            alert('用户名已存在，请重新填写')
+          } else if (error.code === 125) {
+            alert('邮箱格式不正确')
+          }
+        })
+      },
+      onSubmitLogIn() {
+        AV.User.logIn(this.logInInfo.username, this.logInInfo.password).then((loggedInUser) => {
+          this.updateLogInState()
+          alert('登录成功')
+          this.logInVisible = false
+        }, function (error) {
+          if (error.code === 211) {
+            alert("用户名不存在")
+          } else if (error.code === 210) {
+            alert("用户名密码不匹配")
+          }
+        })
+      },
+      triggerState() {
+        this.registerVisible = !this.registerVisible
+        this.logInVisible = !this.logInVisible
+      },
+      onLogOut() {
         AV.User.logOut()
-        this.triggerState()
-      }, function (error) {
-        if (error.code === 202) {
-          alert('用户名已存在，请重新填写')
-        } else if (error.code === 125) {
-          alert('邮箱格式不正确')
+        this.currentUser = null
+        alert('登出成功')
+        window.location.reload()
+      },
+      updateLogInState() {
+        this.currentUser = AV.User.current()
+        this.getResume()
+      },
+      getResume() {
+        if (this.currentUser) {
+          var query = new AV.Query('User')
+          query.get(this.currentUser.id).then((user) => {
+            Object.assign(this.resume, JSON.parse(user.attributes.resume))
+          }, function (error) {
+            console.log(error)
+          })
         }
-      })
-    },
-    onSubmitLogIn() {
-      AV.User.logIn(this.logInInfo.username, this.logInInfo.password).then((loggedInUser) => {
-        alert('登录成功')
-        this.logInVisible = false
-      }, function (error) {
-        if (error.code === 211) {
-          alert("用户名不存在")
-        } else if (error.code === 210) {
-          alert("用户名密码不匹配")
-        }
-      })
-    },
-    triggerState() {
-      this.registerVisible = !this.registerVisible
-      this.logInVisible = !this.logInVisible
+      },
+      addSkills() {
+        this.resume.skills.push({name: '名称', description: '描述'})
+      },
+      delSkills(index) {
+        this.resume.skills.splice(index, 1)
+      },
+      addProjects(){
+        this.resume.projects.push({name:'项目名称',url:'http://xxxxxx.com',skills:'CSS3 H5 ES6',description:'项目描述'})
+      },
+      delProjects(index){
+        this.resume.projects.splice(index, 1)
+      }
     }
-  }
-})
+  })
+
+  app.updateLogInState()
+}

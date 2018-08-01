@@ -48,6 +48,14 @@ ul, ol, li {
   margin: 20px auto 0 auto;
   border: 1px solid;
 }
+.page > main .skills li{
+  position:relative;
+}
+.page > main .del{
+  position:absolute;
+  bottom:0;
+  right: 0;
+}
 
 .page > main h2 {
   margin-bottom: 20px;
@@ -89,6 +97,7 @@ ul, ol, li {
 }
 
 .page > main .projects > ol > li {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 25px;
@@ -104,6 +113,10 @@ ul, ol, li {
   flex-grow: 1;
   text-align: right;
 }
+.page > main .projects > ol > li .description{
+  width: 100%;
+  text-align: left;
+}
 
 .page .register, .page .logIn {
   width: 500px;
@@ -117,3 +130,6 @@ ul, ol, li {
   border: 1px solid red;
   background: white;
 }
+
+
+

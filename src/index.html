@@ -15,7 +15,7 @@
       <button>换肤</button>
     </div>
     <div class="bottom">
-      <button @click="AV.User.logOut()">登出</button>
+      <button @click="onLogOut">登出</button>
     </div>
   </div>
   <main>
@@ -36,39 +36,42 @@
     <div class="skills">
       <h2>技能</h2>
       <ol>
-        <li>静态页面制作</li>
-        <li>静态页面制作</li>
-        <li>静态页面制作</li>
-        <li>静态页面制作</li>
+        <li v-for="(skill,index) in resume.skills">
+          <div>
+            <editable-span :value="skill.name" @edit="onEdit(`skills[${index}].name`,$event)"></editable-span>
+          </div>
+          <div>
+            <editable-span :value="skill.description" @edit="onEdit(`skills[${index}].description`,$event)"></editable-span>
+          </div>
+          <span class="del" @click="delSkills(index)">x</span>
+        </li>
+        <li @click="addSkills">+</li>
       </ol>
     </div>
     <div class="projects">
       <h2>项目经历</h2>
       <ol>
-        <li>
-          <h3>我的简历</h3>
-          <p>http://xxxx.com</p>
-          <p class="intro">CSS3 H5 ES6</p>
-          <p>xxxx xx xxxxx xxxxx xxxx xxxxxxx xxx xxxxxx xx xxxx xx xxx xx xx xxxxx xxxxxxx xxx xxxxxx xxxxx xxxx xxx xx
-            xxxx xxx xxx xxxx</p>
+        <li v-for="(project,index) in resume.projects">
+          <h3>
+            <editable-span :value="project.name" @edit="onEdit(`projects[${index}].name`,$event)"></editable-span>
+          </h3>
+          <p>
+            <editable-span :value="project.url" @edit="onEdit(`projects[${index}].url`,$event)"></editable-span>
+          </p>
+          <p class="intro">
+            <editable-span :value="project.skills" @edit="onEdit(`projects[${index}].skills`,$event)"></editable-span>
+          </p>
+          <p class="description">
+            <editable-span :value="project.description" @edit="onEdit(`projects[${index}].description`,$event)"></editable-span>
+          </p>
+          <span class="del" @click="delProjects(index)">x</span>
         </li>
-        <li>
-          <h3>我的简历</h3>
-          <p>http://xxxx.com</p>
-          <p class="intro">CSS3 H5 ES6</p>
-          <p>xxxx xx xxxxx xxxxx xxxx xxxxxxx xxx xxxxxx xx xxxx xx xxx xx xx xxxxx xxxxxxx xxx xxxxxx xxxxx xxxx xxx xx
-            xxxx xxx xxx xxxx</p>
-        </li>
-        <li>
-          <h3>我的简历</h3>
-          <p>http://xxxx.com</p>
-          <p class="intro">CSS3 H5 ES6</p>
-          <p>xxxx xx xxxxx xxxxx xxxx xxxxxxx xxx xxxxxx xx xxxx xx xxx xx xx xxxxx xxxxxxx xxx xxxxxx xxxxx xxxx xxx xx
-            xxxx xxx xxx xxxx</p>
-        </li>
+        <li @click="addProjects">+</li>
       </ol>
     </div>
   </main>
+
+  <!--注册框-->
   <div v-show="registerVisible" class="register" @submit.prevent="onSubmitRegister">
     <h2>注册</h2>
     <form>
@@ -85,6 +88,7 @@
       <button type="button" @click="registerVisible = false">关闭</button>
     </form>
   </div>
+  <!--登陆框-->
   <div v-show="logInVisible" class="logIn" @submit.prevent="onSubmitLogIn">
     <h2>登录</h2>
     <form>
