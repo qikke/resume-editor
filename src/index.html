@@ -19,6 +19,7 @@
       <button @click="share">分享</button>
       <button @click="print">打印</button>
       <button @click="skinVisible = true">换肤</button>
+
     </div>
     <div class="bottom">
       <button @click="onLogOut">登出</button>
@@ -84,58 +85,31 @@
   </main>
 
   <!--注册框-->
-  <div v-show="registerVisible" class="register" @submit.prevent="onSubmitRegister">
-    <h2>注册</h2>
-    <form>
-      <div class="row">
-        <label>用户名 <input type="text" v-model="registerInfo.username"></label>
-      </div>
-      <div class="row">
-        <label>密码 <input type="text" v-model="registerInfo.password"></label>
-      </div>
-      <div class="row">
-        <label>邮箱 <input type="text" v-model="registerInfo.email"></label>
-      </div>
-      <button type="submit">确认注册</button>
-      <button type="button" @click="registerVisible = false">关闭</button>
-    </form>
-  </div>
+  <register :register-state="registerVisible" @change="registerVisible = $event"></register>
+
   <!--登陆框-->
-  <div v-show="logInVisible" class="logIn" @submit.prevent="onSubmitLogIn">
-    <h2>登录</h2>
-    <form>
-      <div class="row">
-        <label>账号 <input type="text" v-model="logInInfo.username"></label>
-      </div>
-      <div class="row">
-        <label>密码 <input type="text" v-model="logInInfo.password"></label>
-      </div>
-      <button type="submit">登录</button>
-      <button type="button" @click="triggerState">注册</button>
-      <button type="button" @click="logInVisible = false">关闭</button>
-    </form>
-  </div>
+  <log-in :log-in-state="logInVisible" @login="onLogIn" @login-change="logInVisible = $event" @open-register="registerVisible = true"></log-in>
+
   <!--分享框-->
-  <div class="share" v-show="shareWindowVisible" v-cloak>
-    <h2>分享链接</h2>
-    <textarea cols="60" rows="10" readonly>{{shareUrl}}</textarea>
-    <button @click="shareWindowVisible = false">关闭</button>
-  </div>
+  <share :share-visible = "shareWindowVisible" :share-url="shareUrl" @change = "shareWindowVisible = $event"></share>
+
   <!--退出预览按钮-->
   <button v-if="mode === 'preview'" class="exitPreview" @click="onExitPreview">退出预览</button>
+
   <!--换肤框-->
-  <div v-show="skinVisible" class="skinWindow">
-    <button @click="changeSkin('default')">默认</button>
-    <button @click="changeSkin('black')">黑色</button>
-    <button @click="skinVisible = false">关闭</button>
-  </div>
+  <skin :skin-visible = "skinVisible" @change-skin="changeSkin($event)" @change-state="skinVisible = $event"></skin>
 </div>
 
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
-<script src="js/AV.js"></script>
+<script src="js/initialize/AV.js"></script>
 <script src="../vendors/vue.min.js"></script>
 
-<script src="./js/editable-span.js"></script>
+<script src="js/component/editable-span.js"></script>
+<script src="./js/component/register.js"></script>
+<script src="./js/component/logIn.js"></script>
+<script src="./js/component/share.js"></script>
+<script src="./js/component/skin.js"></script>
 <script src="./js/index.js"></script>
+
 </body>
 </html>
