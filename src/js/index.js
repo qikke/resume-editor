@@ -53,7 +53,9 @@
       currentUser: null,
       shareWindowVisible: false,
       shareUrl: undefined,
-      mode: 'edit',  //'preview'
+      mode: 'edit',  //'preview',
+      skinVisible: false,
+      skin: 'default',
     },
     methods: {
       onEdit(key, value) {
@@ -114,7 +116,7 @@
       onSubmitLogIn() {
         AV.User.logIn(this.logInInfo.username, this.logInInfo.password).then((loggedInUser) => {
           this.currentUser = AV.User.current()
-          this.getResume()
+          this.getResume(this.currentUser.id)
           alert('登录成功')
           this.logInVisible = false
         }, function (error) {
@@ -145,7 +147,7 @@
         } else {
           this.mode = 'edit'
           this.currentUser = AV.User.current()
-          this.getResume(this.currentUser.id)
+          this.currentUser && this.getResume(this.currentUser.id)
         }
       },
       getResume(id) {
@@ -178,10 +180,16 @@
         this.shareWindowVisible = true
         this.shareUrl = window.location.host + window.location.pathname + '?_id=' + this.currentUser.id
       },
-      onExitPreview(){
+      onExitPreview() {
         let newUrl = window.location.href.replace(/\?_id=.+/, '')
         window.location.href = newUrl
-      }
+      },
+      print() {
+        window.print()
+      },
+      changeSkin(name) {
+        this.skin = name
+      },
     }
   })
 

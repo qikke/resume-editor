@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Resume editor</title>
-  <link href="css/index.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="./css/index.css">
+  <link href="css/theme/default.css" rel="stylesheet"/>
+  <link href="css/theme/black.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="./css/share.css">
+  <link rel="stylesheet" href="./css/skinWindow.css">
+  <link rel="stylesheet" href="./css/print.css" media="print">
 </head>
 <body>
-<div class="page" id="app">
+<div id="app" :class="[skin,'page']">
   <div class="sidebar" v-if="mode === 'edit'">
     <div class="top">
       <button @click="onClickSave">保存</button>
       <button @click="share">分享</button>
-      <button>打印</button>
-      <button>换肤</button>
+      <button @click="print">打印</button>
+      <button @click="skinVisible = true">换肤</button>
     </div>
     <div class="bottom">
       <button @click="onLogOut">登出</button>
@@ -47,7 +53,7 @@
           </div>
           <span class="del" @click="delSkills(index)" v-if="mode === 'edit'">x</span>
         </li>
-        <li @click="addSkills" v-if="mode === 'edit'">+</li>
+        <li @click="addSkills" v-if="mode === 'edit'" class="add">+</li>
       </ol>
     </div>
     <div class="projects">
@@ -72,7 +78,7 @@
           </p>
           <span class="del" @click="delProjects(index)" v-if="mode === 'edit'">x</span>
         </li>
-        <li @click="addProjects" v-if="mode === 'edit'">+</li>
+        <li @click="addProjects" v-if="mode === 'edit'" class="add">+</li>
       </ol>
     </div>
   </main>
@@ -117,6 +123,12 @@
   </div>
   <!--退出预览按钮-->
   <button v-if="mode === 'preview'" class="exitPreview" @click="onExitPreview">退出预览</button>
+  <!--换肤框-->
+  <div v-show="skinVisible" class="skinWindow">
+    <button @click="changeSkin('default')">默认</button>
+    <button @click="changeSkin('black')">黑色</button>
+    <button @click="skinVisible = false">关闭</button>
+  </div>
 </div>
 
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>

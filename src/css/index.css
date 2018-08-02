@@ -22,7 +22,7 @@ ul, ol, li {
   height: 100vh;
 }
 
-.sidebar .top {
+.page .sidebar .top {
   display: flex;
   flex-flow: column;
 
@@ -118,42 +118,13 @@ ul, ol, li {
   text-align: left;
 }
 
-.page .register, .page .logIn {
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto auto;
-  border: 1px solid red;
-  background: white;
-}
-
-
-.page > .share{
-  position:absolute;
-  width: 500px;
-  height:300px;
-  left:0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  margin:auto auto;
-  border:1px solid red;
-  background:white;
-}
-
-.page > .share textarea{
-  word-break: break-all;
-}
-
 .page .exitPreview{
   position: fixed;
   top: 20px;
   left: 20px;
   padding: 10px 5px;
 }
+
+
 
 
