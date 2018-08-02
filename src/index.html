@@ -13,19 +13,8 @@
 </head>
 <body>
 <div id="app" :class="[skin,'page']">
-  <!--工具栏-->
-  <div class="sidebar" v-if="mode === 'edit'">
-    <div class="top">
-      <button @click="onClickSave">保存</button>
-      <button @click="share">分享</button>
-      <button @click="print">打印</button>
-      <button @click="skinVisible = true">换肤</button>
-
-    </div>
-    <div class="bottom">
-      <button @click="onLogOut">登出</button>
-    </div>
-  </div>
+  <!--边栏-->
+  <app-aside :mode="mode" @onclicksave="onClickSave" @share="share" @skinchange="skinVisible = true" @onlogout="onLogOut"></app-aside>
 
   <!--简历-->
   <resume :resume="resume" :mode="mode" @update-resume="resume = $event"></resume>
@@ -57,6 +46,7 @@
 <script src="./js/component/share.js"></script>
 <script src="./js/component/skin.js"></script>
 <script src="./js/component/resume.js"></script>
+<script src="./js/component/app-aside.js"></script>
 <script src="./js/index.js"></script>
 
 </body>

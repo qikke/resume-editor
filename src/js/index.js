@@ -39,7 +39,6 @@
           // 保存到云端
           user.save()
           alert('简历保存成功')
-          // window.location.reload()
         }
         else {
           alert('请先登录')
@@ -99,9 +98,6 @@
       },
       onExitPreview() {
         window.location.href = window.location.href.replace(/\?_id=.+/, '')
-      },
-      print() {
-        window.print()
       },
       changeSkin(name) {
         this.skin = name
