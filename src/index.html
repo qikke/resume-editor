@@ -13,6 +13,7 @@
 </head>
 <body>
 <div id="app" :class="[skin,'page']">
+  <!--工具栏-->
   <div class="sidebar" v-if="mode === 'edit'">
     <div class="top">
       <button @click="onClickSave">保存</button>
@@ -25,79 +26,25 @@
       <button @click="onLogOut">登出</button>
     </div>
   </div>
-  <main>
-    <div class="introduction">
-      <editable-span :value="resume.name" :mode="mode" @edit="onEdit('name',$event)"></editable-span>
-      <p>
-        <editable-span :value="resume.birthday" :mode="mode" @edit="onEdit('birthday',$event)"></editable-span>
-        |
-        <editable-span :value="resume.jobTittle" :mode="mode" @edit="onEdit('jobTittle',$event)"></editable-span>
-        |
-        <editable-span :value="resume.gender" :mode="mode" @edit="onEdit('gender',$event)"></editable-span>
-        |
-        <editable-span :value="resume.email" :mode="mode" @edit="onEdit('email',$event)"></editable-span>
-        |
-        <editable-span :value="resume.phone" :mode="mode" @edit="onEdit('phone',$event)"></editable-span>
-      </p>
-    </div>
-    <div class="skills">
-      <h2>技能</h2>
-      <ol>
-        <li v-for="(skill,index) in resume.skills">
-          <div>
-            <editable-span :value="skill.name" :mode="mode"
-                           @edit="onEdit(`skills[${index}].name`,$event)"></editable-span>
-          </div>
-          <div>
-            <editable-span :value="skill.description" :mode="mode"
-                           @edit="onEdit(`skills[${index}].description`,$event)"></editable-span>
-          </div>
-          <span class="del" @click="delSkills(index)" v-if="mode === 'edit'">x</span>
-        </li>
-        <li @click="addSkills" v-if="mode === 'edit'" class="add">+</li>
-      </ol>
-    </div>
-    <div class="projects">
-      <h2>项目经历</h2>
-      <ol>
-        <li v-for="(project,index) in resume.projects">
-          <h3>
-            <editable-span :value="project.name" :mode="mode"
-                           @edit="onEdit(`projects[${index}].name`,$event)"></editable-span>
-          </h3>
-          <p>
-            <editable-span :value="project.url" :mode="mode"
-                           @edit="onEdit(`projects[${index}].url`,$event)"></editable-span>
-          </p>
-          <p class="intro">
-            <editable-span :value="project.skills" :mode="mode"
-                           @edit="onEdit(`projects[${index}].skills`,$event)"></editable-span>
-          </p>
-          <p class="description">
-            <editable-span :value="project.description" :mode="mode"
-                           @edit="onEdit(`projects[${index}].description`,$event)"></editable-span>
-          </p>
-          <span class="del" @click="delProjects(index)" v-if="mode === 'edit'">x</span>
-        </li>
-        <li @click="addProjects" v-if="mode === 'edit'" class="add">+</li>
-      </ol>
-    </div>
-  </main>
+
+  <!--简历-->
+  <resume :resume="resume" :mode="mode" @update-resume="resume = $event"></resume>
 
   <!--注册框-->
   <register :register-state="registerVisible" @change="registerVisible = $event"></register>
 
   <!--登陆框-->
-  <log-in :log-in-state="logInVisible" @login="onLogIn" @login-change="logInVisible = $event" @open-register="registerVisible = true"></log-in>
+  <log-in :log-in-state="logInVisible" @login="onLogIn" @login-change="logInVisible = $event"
+          @open-register="registerVisible = true"></log-in>
 
   <!--分享框-->
-  <share :share-visible = "shareWindowVisible" :share-url="shareUrl" @change = "shareWindowVisible = $event"></share>
+  <share :share-visible="shareWindowVisible" :share-url="shareUrl" @change="shareWindowVisible = $event"></share>
 
   <!--退出预览按钮-->
   <button v-if="mode === 'preview'" class="exitPreview" @click="onExitPreview">退出预览</button>
 
   <!--换肤框-->
-  <skin :skin-visible = "skinVisible" @change-skin="changeSkin($event)" @change-state="skinVisible = $event"></skin>
+  <skin :skin-visible="skinVisible" @change-skin="changeSkin($event)" @change-state="skinVisible = $event"></skin>
 </div>
 
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
@@ -109,6 +56,7 @@
 <script src="./js/component/logIn.js"></script>
 <script src="./js/component/share.js"></script>
 <script src="./js/component/skin.js"></script>
+<script src="./js/component/resume.js"></script>
 <script src="./js/index.js"></script>
 
 </body>

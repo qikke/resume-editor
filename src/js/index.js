@@ -5,26 +5,7 @@
       isEdited: false,
       logInVisible: false,
       registerVisible: false,
-
       resume: {
-        name: '姓名',
-        gender: '男',
-        birthday: '1990年1月',
-        jobTittle: '前端工程师',
-        phone: '13552211231',
-        email: 'xxxxxx@qq.com',
-        skills: [{name: '技能名称', description: '技能描述'}, {name: '技能名称', description: '技能描述'}, {
-          name: '技能名称',
-          description: '技能描述'
-        }, {name: '技能名称', description: '技能描述'}],
-        projects: [{name: '项目名称', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: '项目描述'}, {
-          name: '项目名称',
-          url: 'http://xxxxxx.com',
-          skills: 'CSS3 H5 ES6',
-          description: '项目描述'
-        }],
-      },
-      previewResume: {
         name: '姓名',
         gender: '男',
         birthday: '1990年1月',
@@ -50,25 +31,6 @@
       skin: 'default',
     },
     methods: {
-      onEdit(key, value) {
-        let reg = /\[(\d+)\]/g
-        //如果参数是带[]的
-        if (reg.test(key)) {
-          //提取参数name中的index
-          key = key.replace(reg, (match, number) => `.${number}`)
-          let keys = key.split('.')
-          let result = this.resume
-          for (let i = 0; i < keys.length; i++) {
-            if (i === keys.length - 1) {
-              result[keys[i]] = value
-            } else {
-              result = result[keys[i]]
-            }
-          }
-        } else {
-          this.resume[key] = value
-        }
-      },
       onClickSave() {
         if (this.currentUser) {
           let user = AV.Object.createWithoutData('User', this.currentUser.id)
@@ -127,18 +89,6 @@
           })
         }
       },
-      addSkills() {
-        this.resume.skills.push({name: '名称', description: '描述'})
-      },
-      delSkills(index) {
-        this.resume.skills.splice(index, 1)
-      },
-      addProjects() {
-        this.resume.projects.push({name: '项目名称', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: '项目描述'})
-      },
-      delProjects(index) {
-        this.resume.projects.splice(index, 1)
-      },
       share() {
         if (!this.currentUser) {
           alert('请先登陆！')
@@ -148,8 +98,7 @@
         this.shareUrl = window.location.host + window.location.pathname + '?_id=' + this.currentUser.id
       },
       onExitPreview() {
-        let newUrl = window.location.href.replace(/\?_id=.+/, '')
-        window.location.href = newUrl
+        window.location.href = window.location.href.replace(/\?_id=.+/, '')
       },
       print() {
         window.print()
