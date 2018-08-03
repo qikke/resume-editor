@@ -8,12 +8,12 @@ ul, ol, li {
   list-style: none;
 }
 
-.page {
+.index {
   display: flex;
   position: relative;
 }
 
-.page .sidebar {
+.index .sidebar {
   display: flex;
   flex-flow: column;
   border: 1px solid red;
@@ -22,7 +22,7 @@ ul, ol, li {
   height: 100vh;
 }
 
-.page .sidebar .top {
+.index .sidebar .top {
   display: flex;
   flex-flow: column;
 
@@ -33,7 +33,7 @@ ul, ol, li {
   margin: 15px;
 }
 
-.page > main {
+.index > main {
   border: 1px solid red;
   flex-grow: 1;
   display: flex;
@@ -42,30 +42,30 @@ ul, ol, li {
   height: 100vh;
 }
 
-.page > main .introduction, .page > main .skills, .page > main .projects {
+.index > main .introduction, .index > main .skills, .index > main .projects {
   text-align: center;
   width: 650px;
   margin: 20px auto 0 auto;
   border: 1px solid;
 }
-.page > main .skills li{
+.index > main .skills li{
   position:relative;
 }
-.page > main .del{
+.index > main .del{
   position:absolute;
   bottom:0;
   right: 0;
 }
 
-.page > main h2 {
+.index > main h2 {
   margin-bottom: 20px;
 }
 
-.page > main .editableSpan {
+.index > main .editableSpan {
   position: relative;
 }
 
-.page > main .editableSpan button {
+.index > main .editableSpan button {
   width: 50px;
   display: none;
   position: absolute;
@@ -74,29 +74,29 @@ ul, ol, li {
   z-index: 1;
 }
 
-.page > main .editableSpan:hover button {
+.index > main .editableSpan:hover button {
   display: block;
 }
 
-.page > main .skills > ol {
+.index > main .skills > ol {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.page > main .skills > ol > li {
+.index > main .skills > ol > li {
   border: 1px solid #ddd;
   width: 48%;
   margin-bottom: 15px;
 }
 
-.page > main .projects > ol {
+.index > main .projects > ol {
   display: flex;
   flex-flow: column;
 }
 
-.page > main .projects > ol > li {
+.index > main .projects > ol > li {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -105,20 +105,20 @@ ul, ol, li {
   justify-content: space-between;
 }
 
-.page > main .projects > ol > li h3 {
+.index > main .projects > ol > li h3 {
   margin-right: 15px;
 }
 
-.page > main .projects > ol > li .intro {
+.index > main .projects > ol > li .intro {
   flex-grow: 1;
   text-align: right;
 }
-.page > main .projects > ol > li .description{
+.index > main .projects > ol > li .description{
   width: 100%;
   text-align: left;
 }
 
-.page .exitPreview{
+.index .exitPreview{
   position: fixed;
   top: 20px;
   left: 20px;

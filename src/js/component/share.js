@@ -1,16 +1,20 @@
-Vue.component('share', {
-  props: ['shareVisible', 'shareUrl'],
-  template: `
-    <div class="share" v-show="shareVisible" v-cloak>
+{
+  window.Share = {
+    template: `
+    <div class="share"  v-cloak>
       <h2>分享链接</h2>
       <textarea cols="60" rows="10" readonly>{{shareUrl}}</textarea>
-      <button @click="stateChange">关闭</button>
+      <button @click="$router.replace('/')">关闭</button>
     </div>
   `,
-  methods:{
-    stateChange(){
-      this.shareVisible = !this.shareVisible
-      this.$emit('change',this.shareVisible)
+    computed: {
+      shareUrl(){
+        return this.$store.state.shareUrl
+      }
+    },
+    mounted(){
+      console.log(this.shareUrl)
     }
   }
-})
+  Vue.component('share', window.Share)
+}

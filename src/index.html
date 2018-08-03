@@ -13,32 +13,28 @@
 </head>
 <body>
 <div id="app" :class="[skin,'page']">
-  <!--边栏-->
-  <app-aside :mode="mode" @onclicksave="onClickSave" @share="share" @skinchange="skinVisible = true" @onlogout="onLogOut"></app-aside>
+  <router-view></router-view>
+  <!--<index :mode="mode" :currentUser="currentUser" :resume="resume" @update-resume="resume=$event"></index>-->
 
-  <!--简历-->
-  <resume :resume="resume" :mode="mode" @update-resume="resume = $event"></resume>
+  <!--&lt;!&ndash;注册框&ndash;&gt;-->
+  <!--<register :register-state="registerVisible" @change="registerVisible = $event"></register>-->
 
-  <!--注册框-->
-  <register :register-state="registerVisible" @change="registerVisible = $event"></register>
+  <!--&lt;!&ndash;登陆框&ndash;&gt;-->
+  <!--<log-in :log-in-state="logInVisible" @login="onLogIn" @login-change="logInVisible = $event"-->
+  <!--@open-register="registerVisible = true"></log-in>-->
 
-  <!--登陆框-->
-  <log-in :log-in-state="logInVisible" @login="onLogIn" @login-change="logInVisible = $event"
-          @open-register="registerVisible = true"></log-in>
+  <!--&lt;!&ndash;分享框&ndash;&gt;-->
+  <!--<share :share-visible="shareWindowVisible" :share-url="shareUrl" @change="shareWindowVisible = $event"></share>-->
 
-  <!--分享框-->
-  <share :share-visible="shareWindowVisible" :share-url="shareUrl" @change="shareWindowVisible = $event"></share>
-
-  <!--退出预览按钮-->
-  <button v-if="mode === 'preview'" class="exitPreview" @click="onExitPreview">退出预览</button>
-
-  <!--换肤框-->
-  <skin :skin-visible="skinVisible" @change-skin="changeSkin($event)" @change-state="skinVisible = $event"></skin>
+  <!--&lt;!&ndash;换肤框&ndash;&gt;-->
+  <!--<skin :skin-visible="skinVisible" @change-skin="changeSkin($event)" @change-state="skinVisible = $event"></skin>-->
 </div>
 
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
 <script src="js/initialize/AV.js"></script>
 <script src="../vendors/vue.min.js"></script>
+<script src="../node_modules/vue-router/dist/vue-router.js"></script>
+<script src="../node_modules/vuex/dist/vuex.js"></script>
 
 <script src="js/component/editable-span.js"></script>
 <script src="./js/component/register.js"></script>
@@ -47,7 +43,8 @@
 <script src="./js/component/skin.js"></script>
 <script src="./js/component/resume.js"></script>
 <script src="./js/component/app-aside.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/component/index.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

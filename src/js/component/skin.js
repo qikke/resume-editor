@@ -1,19 +1,23 @@
-Vue.component('skin',{
-  props:['skinVisible'],
-  template:`
-    <div v-show="skinVisible" class="skinWindow">
+{
+  window.Skin = {
+    template: `
+    <div class="skinWindow">
       <button @click="changeSkin('default')">默认</button>
       <button @click="changeSkin('black')">黑色</button>
-      <button @click="changeState">关闭</button>
+      <button @click="$router.replace('/')">关闭</button>
     </div>
   `,
-  methods:{
-    changeSkin(name){
-      this.$emit('change-skin',name)
+    methods: {
+      changeSkin(name){
+        this.$store.commit('changeSkin',name)
+        this.$router.replace('/')
+      }
     },
-    changeState(){
-      this.skinVisible = !this.skinVisible
-      this.$emit('change-state',this.skinVisible)
-    }
+    computed: {
+      skin() {
+        return this.$store.state.skin
+      },
+    },
   }
-})
+  Vue.component('skin', window.Skin)
+}
