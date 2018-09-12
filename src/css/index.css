@@ -11,6 +11,7 @@ ul, ol, li {
 .index {
   display: flex;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .index .sidebar {
@@ -25,7 +26,6 @@ ul, ol, li {
 .index .sidebar .top {
   display: flex;
   flex-flow: column;
-
 }
 
 .sidebar button {
@@ -34,32 +34,127 @@ ul, ol, li {
 }
 
 .index > main {
-  border: 1px solid red;
-  flex-grow: 1;
+  width: 755px;
+  margin: 20px auto 0 auto;
+  padding-bottom: 20px;
+  /*border: 1px solid red;*/
+  /*flex-grow: 1;*/
+  box-shadow: 0 3px 14px -1px rgba(176,166,176,1);
+
   display: flex;
   flex-flow: column;
   overflow: auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.index > main .introduction, .index > main .skills, .index > main .projects {
+/*.index > main .introduction, .index > main .skills, .index > main .projects {*/
+  /*!*text-align: center;*!*/
+  /*!*border: 1px solid;*!*/
+  /*!*width: 100%;*!*/
+/*}*/
+
+.index > main .introduction {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.introduction .logoWrapper {
+  background: #0197f6;
+  margin-left: 40px;
+  width: 187px;
+}
+
+.introduction .logo {
+  padding: 45px 0;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: "Microsoft Yahei", serif;
   text-align: center;
-  width: 650px;
-  margin: 20px auto 0 auto;
-  border: 1px solid;
-}
-.index > main .skills li{
-  position:relative;
-}
-.index > main .del{
-  position:absolute;
-  bottom:0;
-  right: 0;
 }
 
-.index > main h2 {
-  margin-bottom: 20px;
+.introduction .name {
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
+
+.introduction .jobTitle {
+  font-size: 20px;
+}
+
+.introduction .info {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  font-family: '	SimSun',sans-serif;
+  color: #414348;
+}
+
+.introduction .info > span {
+  width:150px;
+  text-align: left;
+}
+
+
+.education,.skills,.projects{
+  display: flex;
+  /*padding-top: 25px;*/
+  margin-right: 40px;
+  position: relative;
+}
+
+.education .title,.skills .title,.projects .title{
+  width: 160px;
+  text-align: right;
+  padding-right: 15px;
+  flex-shrink: 0;
+  margin-top: 18px;
+  font-weight: bold;
+  font-size:17px;
+  color: #2a2a2a;
+}
+
+.education .content,.skills .content,.projects .content{
+  min-height: 100px;
+  border-left: 2px solid #b2b2b2;
+  flex-grow: 1;
+  padding:18px;
+  text-align:justify;
+}
+
+.education .content::after,.skills .content::after,.projects .content::after{
+  content:'';
+  width:83%;
+  height:2px;
+  background: #b2b2b2;
+  position: absolute;
+  bottom: 0;
+  left:108px;
+}
+
+
+
+.index > main .skills li {
+  position: relative;
+}
+
+.index > main .skills .content .spanTitle{
+  font-weight: bold;
+}
+
+.index > main .del {
+  position: absolute;
+  top: -3px;
+  right: 2px;
+  cursor: pointer;
+}
+
+/*.index > main h2 {*/
+  /*margin-bottom: 20px;*/
+/*}*/
 
 .index > main .editableSpan {
   position: relative;
@@ -78,47 +173,51 @@ ul, ol, li {
   display: block;
 }
 
-.index > main .skills > ol {
-  text-align: center;
+.index > main .skills ol {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  text-align: justify;
 }
 
-.index > main .skills > ol > li {
+.index > main .skills ol > li {
   border: 1px solid #ddd;
-  width: 48%;
+  width: 100%;
   margin-bottom: 15px;
 }
 
-.index > main .projects > ol {
+.index > main .projects ol {
   display: flex;
   flex-flow: column;
 }
 
-.index > main .projects > ol > li {
+.index > main .projects ol > li {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 25px;
-  border: 1px solid;
+  border: 1px solid #ddd;
   justify-content: space-between;
 }
 
-.index > main .projects > ol > li h3 {
+.index > main .projects ol > li h3 {
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+.index > main .projects ol > li .intro {
+  flex-grow: 1;
+  text-align: right;
   margin-right: 15px;
 }
 
-.index > main .projects > ol > li .intro {
-  flex-grow: 1;
-  text-align: right;
-}
-.index > main .projects > ol > li .description{
+.index > main .projects  ol > li .description {
   width: 100%;
   text-align: left;
 }
 
-.index .exitPreview{
+.index .exitPreview {
   position: fixed;
   top: 20px;
   left: 20px;

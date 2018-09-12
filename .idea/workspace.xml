@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2209e461-3324-4f59-b79c-e3792bc3b01d" name="Default Changelist" comment="完善页面功能">
-      <change afterPath="$PROJECT_DIR$/src/js/component/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/component/app-aside.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/component/app-aside.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/component/editable-span.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/component/editable-span.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/component/logIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/component/logIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/component/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/component/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/component/resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/component/resume.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/component/share.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/component/share.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/component/skin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/component/skin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,61 +20,69 @@
     <session id="-1734284870">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="2" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="11" />
+          <entry key="css" value="13" />
           <entry key="html" value="5" />
-          <entry key="js" value="37" />
+          <entry key="js" value="38" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="11" />
+          <entry key="CSS" value="13" />
           <entry key="HTML" value="5" />
-          <entry key="JavaScript" value="37" />
+          <entry key="JavaScript" value="38" />
           <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="986" />
-          <entry key="html" value="5247" />
-          <entry key="js" value="6604" />
+          <entry key="css" value="2278" />
+          <entry key="html" value="5256" />
+          <entry key="js" value="7245" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="986" />
-          <entry key="HTML" value="5282" />
-          <entry key="JavaScript" value="6569" />
+          <entry key="CSS" value="2278" />
+          <entry key="HTML" value="5394" />
+          <entry key="JavaScript" value="7107" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.41420913">
+    <splitter split-orientation="horizontal" split-proportion="0.4365918">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-                  <folding>
-                    <element signature="n#head#0;n#html#0;n#!!top" />
-                  </folding>
+                <state relative-caret-position="300">
+                  <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/js/component/resume.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -93,14 +91,20 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/css/index.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="350">
+                  <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="470">
-                  <caret line="56" column="16" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#398#1005#0" />
-                  </folding>
+                <state relative-caret-position="400">
+                  <caret line="28" column="280" selection-start-line="28" selection-start-column="280" selection-end-line="28" selection-end-column="280" />
                 </state>
               </provider>
             </entry>
@@ -108,8 +112,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/component/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="575">
-                  <caret line="29" column="6" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="29" selection-end-column="6" />
+                <state relative-caret-position="200">
+                  <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -123,11 +127,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/component/skin.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="175">
-                  <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+                <state relative-caret-position="250">
+                  <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -136,7 +140,7 @@
             <entry file="file://$PROJECT_DIR$/src/js/component/share.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
-                  <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+                  <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -145,16 +149,7 @@
             <entry file="file://$PROJECT_DIR$/src/js/component/editable-span.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state>
-                  <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/js/component/resume.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="550">
-                  <caret line="55" column="55" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="55" />
+                  <caret column="1" selection-start-column="1" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -219,17 +214,17 @@
         <option value="$PROJECT_DIR$/src/css/share.css" />
         <option value="$PROJECT_DIR$/src/css/skinWindow.css" />
         <option value="$PROJECT_DIR$/src/js/index.js" />
-        <option value="$PROJECT_DIR$/src/css/index.css" />
-        <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/js/component/index.js" />
         <option value="$PROJECT_DIR$/src/js/component/register.js" />
         <option value="$PROJECT_DIR$/src/js/component/editable-span.js" />
         <option value="$PROJECT_DIR$/src/js/component/logIn.js" />
-        <option value="$PROJECT_DIR$/src/js/component/resume.js" />
         <option value="$PROJECT_DIR$/src/js/component/share.js" />
         <option value="$PROJECT_DIR$/src/js/component/app-aside.js" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/js/component/skin.js" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
+        <option value="$PROJECT_DIR$/src/js/component/resume.js" />
+        <option value="$PROJECT_DIR$/src/css/index.css" />
       </list>
     </option>
   </component>
@@ -308,6 +303,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/GitHub/jiRen/resume-editor/src/js/AV.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
@@ -350,19 +346,21 @@
       <workItem from="1533124470820" duration="4100000" />
       <workItem from="1533175462891" duration="6448000" />
       <workItem from="1533198951821" duration="8361000" />
-      <workItem from="1533276070828" duration="16793000" />
+      <workItem from="1533276070828" duration="17143000" />
+      <workItem from="1533624273417" duration="1221000" />
+      <workItem from="1536717786515" duration="13005000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69107000" />
+    <option name="totallyTimeSpent" value="83683000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.1003963" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -377,7 +375,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="3" weight="0.19034852" />
     </layout>
     <layout-to-restore>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
@@ -458,23 +455,6 @@
     <entry file="file://$PROJECT_DIR$/src/css/skinWindow.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/component/logIn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -489,30 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/component/app-aside.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/component/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="29" column="6" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="29" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="56" column="16" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="16" />
-          <folding>
-            <element signature="e#398#1005#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/print.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -520,31 +476,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/component/resume.js">
+    <entry file="file://$PROJECT_DIR$/src/js/component/app-aside.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="55" column="55" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/component/editable-span.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+        <state relative-caret-position="200">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/component/share.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/component/editable-span.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/component/skin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="250">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/component/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="28" column="280" selection-start-line="28" selection-start-column="280" selection-end-line="28" selection-end-column="280" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/component/resume.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
         </state>
       </provider>
     </entry>

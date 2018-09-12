@@ -3,37 +3,55 @@
     template: `
     <main>
       <div class="introduction">
-        <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
-        <p>
-          <editable-span :value="resume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
-          |
-          <editable-span :value="resume.jobTittle" @edit="onEdit('jobTittle',$event)"></editable-span>
-          |
+        <div class="logoWrapper">
+          <div class="logo">
+           <span class="name">
+              <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
+            </span>
+            <span class="jobTitle">
+              <editable-span :value="resume.jobTittle" @edit="onEdit('jobTittle',$event)"></editable-span>
+            </span>
+          </div>
+        </div>
+        <div class="info">
           <editable-span  :value="resume.gender" @edit="onEdit('gender',$event)"></editable-span>
-          |
-          <editable-span :value="resume.email" @edit="onEdit('email',$event)"></editable-span>
-          |
+          <editable-span :value="resume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
           <editable-span :value="resume.phone" @edit="onEdit('phone',$event)"></editable-span>
-        </p>
+          <editable-span :value="resume.email" @edit="onEdit('email',$event)"></editable-span>
+        </div>
       </div>
+      
+      <div class="education">
+        <span class="title">EDUCATION</span>      
+        <div class="content">
+          <span>
+            The scholars imported the engine to consider the spoiled happy windswept to start the aircraft to develop a healthy and green way of happening. The speed of the plane on the plane was speeding up. Christmas was happy. Buddhism seemed to be a happy Christmas visit to the nine-air Aston fly. Aston flies healthy and is vacant.
+          </span>
+        </div>
+      </div> 
+      
       <div class="skills">
-        <h2>技能</h2>
-        <ol>
+        <span class="title">SKILLS</span>      
+        <div class="content">
+           <ol>
           <li v-for="(skill,index) in resume.skills">
             <div>
-              <editable-span  :value="resume.skills[index].name" @edit="onEdit('skills['+index+'].name',$event)"></editable-span>
+              <editable-span :value="resume.skills[index].name" @edit="onEdit('skills['+index+'].name',$event)" class="spanTitle"></editable-span>
             </div>
             <div>
-              <editable-span     :value="resume.skills[index].description" @edit="onEdit('skills['+index+'].description',$event)"></editable-span>
+              <editable-span :value="resume.skills[index].description" @edit="onEdit('skills['+index+'].description',$event)"></editable-span>
             </div>
             <span class="del" @click="delSkills(index)" v-if="mode === 'edit'">x</span>
           </li>
           <li @click="addSkills" v-if="mode === 'edit'" class="add">+</li>
         </ol>
-      </div>
+        </div>
+      </div> 
+      
       <div class="projects">
-        <h2>项目经历</h2>
-        <ol>
+        <span class="title">PROJECTS</span>      
+        <div class="content">
+            <ol>
           <li v-for="(project,index) in resume.projects">
             <h3>
               <editable-span :value="resume.projects[index].name" 
@@ -55,8 +73,54 @@
           </li>
           <li @click="addProjects" v-if="mode === 'edit'" class="add">+</li>
         </ol>
+        </div>
       </div>
-    </main>
+      
+
+      <!---->
+      <!--<div class="skills">-->
+        <!--<h2>技能</h2>-->
+        <!--<ol>-->
+          <!--<li v-for="(skill,index) in resume.skills">-->
+            <!--<div>-->
+              <!--<editable-span  :value="resume.skills[index].name" @edit="onEdit('skills['+index+'].name',$event)"></editable-span>-->
+            <!--</div>-->
+            <!--<div>-->
+              <!--<editable-span     :value="resume.skills[index].description" @edit="onEdit('skills['+index+'].description',$event)"></editable-span>-->
+            <!--</div>-->
+            <!--<span class="del" @click="delSkills(index)" v-if="mode === 'edit'">x</span>-->
+          <!--</li>-->
+          <!--<li @click="addSkills" v-if="mode === 'edit'" class="add">+</li>-->
+        <!--</ol>-->
+      <!--</div>-->
+      <!---->
+      <!---->
+      <!--<div class="projects">-->
+        <!--<h2>项目经历</h2>-->
+        <!--<ol>-->
+          <!--<li v-for="(project,index) in resume.projects">-->
+            <!--<h3>-->
+              <!--<editable-span :value="resume.projects[index].name" -->
+                             <!--@edit="onEdit('projects['+index+'].name',$event)"></editable-span>-->
+            <!--</h3>-->
+            <!--<p>-->
+              <!--<editable-span :value="resume.projects[index].url" -->
+                             <!--@edit="onEdit('projects['+index+'].url',$event)"></editable-span>-->
+            <!--</p>-->
+            <!--<p class="intro">-->
+              <!--<editable-span :value="resume.projects[index].skills" -->
+                             <!--@edit="onEdit('projects['+index+'].skills',$event)"></editable-span>-->
+            <!--</p>-->
+            <!--<p class="description">-->
+              <!--<editable-span :value="resume.projects[index].description" -->
+                             <!--@edit="onEdit('projects['+index+'].description',$event)"></editable-span>-->
+            <!--</p>-->
+            <!--<span class="del" @click="delProjects(index)" v-if="mode === 'edit'">x</span>-->
+          <!--</li>-->
+          <!--<li @click="addProjects" v-if="mode === 'edit'" class="add">+</li>-->
+        <!--</ol>-->
+      <!--</div>-->
+    <!--</main>-->
   `,
     methods: {
       onEdit(key, value) {
@@ -77,7 +141,7 @@
           }
         } else {
           // this.resume[key] = value
-          this.$store.commit('updateResume',{key:key,value:value})
+          this.$store.commit('updateResume', {key: key, value: value})
         }
       },
       addSkills() {

@@ -14,22 +14,20 @@
     state: {
       mode: 'edit',
       resume: {
-        name: '姓名',
-        gender: '男',
+        name: 'John Smith',
+        gender: '123 Street,City',
         birthday: '1990年1月',
-        jobTittle: '前端工程师',
+        jobTittle: 'CARPENTER',
         phone: '13552211231',
-        email: 'xxxxxx@qq.com',
-        skills: [{name: '技能名称', description: '技能描述'}, {name: '技能名称', description: '技能描述'}, {
-          name: '技能名称',
-          description: '技能描述'
-        }, {name: '技能名称', description: '技能描述'}],
-        projects: [{name: '项目名称', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: '项目描述'}, {
-          name: '项目名称',
-          url: 'http://xxxxxx.com',
-          skills: 'CSS3 H5 ES6',
-          description: '项目描述'
-        }],
+        email: '12345@qq.com',
+        skills: [{name: 'Javascript', description: 'The scholars imported the engine to consider the spoiled happy windswept to start the aircraft to develop a healthy and green way of happening. '},
+          {name: 'HTML&CSS', description: 'The scholars imported the engine to consider the spoiled happy windswept to start the aircraft to develop a healthy and green way of happening. '},
+          {name: 'PHP',description: 'The scholars imported the engine to consider the spoiled happy windswept to start the aircraft to develop a healthy and green way of happening. '},
+          ],
+        projects: [
+          {name: 'Web demo', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: 'The speed of the plane on the plane was speeding up. Christmas was happy. Buddhism seemed to be a happy Christmas visit to the nine-air Aston fly. Aston flies healthy and is vacant.'},
+          {name: 'phone music player',url: 'http://xxxxxx.com',skills: 'CSS3 H5 ES6',description: 'The speed of the plane on the plane was speeding up. Christmas was happy. Buddhism seemed to be a happy Christmas visit to the nine-air Aston fly. Aston flies healthy and is vacant.'}
+          ],
       },
       currentUser: null,
       skin: 'default',
@@ -99,7 +97,7 @@
     },
     computed: {
       skin() {
-        return store.state.skin
+        return this.$store.state.skin
       },
       resume() {
         return this.$store.state.resume
