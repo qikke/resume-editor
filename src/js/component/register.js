@@ -1,22 +1,49 @@
 {
   window.Register = {
     template: ` 
-    <div class="register">
-      <h2>注册</h2>
-      <form @submit.prevent="onSubmitRegister">
-        <div class="row">
-          <label>用户名 <input type="text" v-model="registerInfo.username"></label>
-        </div>
-        <div class="row">
-          <label>密码 <input type="text" v-model="registerInfo.password"></label>
-        </div>
-        <div class="row">
-          <label>邮箱 <input type="text" v-model="registerInfo.email"></label>
-        </div>
-        <button type="submit">确认注册</button>
-        <button type="button" @click="$router.replace('/')">关闭</button>
-      </form>
+  <div class="registerWrapper">
+      <div class="logIn">
+        <h2 class="title">Register your account</h2>
+         <form @submit.prevent="onSubmitRegister">
+        <div class="logInRow">
+           <div class="row">
+            <span class="account">Account </span>
+            <input type="text" v-model="registerInfo.username">
+          </div> 
+          <div class="row">
+            <span class="password">Password</span>
+            <input type="text" v-model="registerInfo.password">
+          </div> 
+          <div class="row">
+            <button type="submit" class="submit">Confirm</button>
+          </div>
+         </div>
+         <div class="signUpRow">
+             <span @click="$router.replace('/')" class="signUp">关闭</span>
+         </div>
+        </form>
+      </div>
     </div>
+ 
+ 
+ 
+ <!---->
+    <!--<div class="register">-->
+      <!--<h2>注册</h2>-->
+      <!--<form @submit.prevent="onSubmitRegister">-->
+        <!--<div class="row">-->
+          <!--<label>用户名 <input type="text" v-model="registerInfo.username"></label>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<label>密码 <input type="text" v-model="registerInfo.password"></label>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<label>邮箱 <input type="text" v-model="registerInfo.email"></label>-->
+        <!--</div>-->
+        <!--<button type="submit">确认注册</button>-->
+        <!--<button type="button" @click="$router.replace('/')">关闭</button>-->
+      <!--</form>-->
+    <!--</div>-->
   `,
     data() {
       return {
