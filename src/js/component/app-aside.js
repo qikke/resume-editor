@@ -3,17 +3,36 @@
     template: `
       <div class="sidebar" v-if="mode === 'edit'">
         <div class="top">
-          <button @click="onClickSave">保存</button>
-          <button @click="share">分享</button>
-          <button @click="window.print()">打印</button>
-          <button @click="$router.replace('/skin')">换肤</button>
-        </div>
-        <div class="bottom">
-          <button @click="onLogOut">登出</button>
+          <!--<button @click="onClickSave">保存</button>-->
+          <!--<button @click="share">分享</button>-->
+          <!--<button @click="window.print()">打印</button>-->
+          <!--<button @click="$router.replace('/skin')">换肤</button>-->
+          
+          
+          <svg class="icon shake-little" aria-hidden="true" @click="onClickSave">
+            <use xlink:href="#icon-baocun"></use>
+          </svg> 
+          <svg class="icon shake-little" aria-hidden="true" @click="share">
+            <use xlink:href="#icon-fenxiang"></use>
+          </svg>   
+          <svg class="icon shake-little" aria-hidden="true" @click="window.print()">
+            <use xlink:href="#icon-dayin"></use>
+          </svg>
+          <svg class="icon shake-little" aria-hidden="true" @click="$router.replace('/skin')">
+            <use xlink:href="#icon-pifu"></use>
+          </svg>   
+          
+          <svg class="icon exit shake-little" aria-hidden="true" @click="onLogOut">
+            <use xlink:href="#icon-tuichudenglu"></use>
+          </svg> 
+        
+        
+          
+          
         </div>
       </div>
   `,
-    methods:{
+    methods: {
       onClickSave() {
         if (this.currentUser) {
           let user = AV.Object.createWithoutData('User', this.currentUser.id)
@@ -40,7 +59,7 @@
           return
         }
         this.$router.replace('/share')
-        this.$store.commit('createShareUrl',window.location.host + window.location.pathname + '?_id=' + this.currentUser.id)
+        this.$store.commit('createShareUrl', window.location.host + window.location.pathname + '?_id=' + this.currentUser.id)
       },
     },
     computed: {
@@ -53,7 +72,7 @@
       currentUser() {
         return this.$store.state.currentUser
       },
-      shareUrl(){
+      shareUrl() {
         return this.$store.state.shareUrl
       }
     },

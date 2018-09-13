@@ -11,16 +11,18 @@ ul, ol, li {
 .index {
   display: flex;
   position: relative;
-  margin-bottom: 20px;
+  /*background:#EEEEEE;*/
 }
 
 .index .sidebar {
   display: flex;
   flex-flow: column;
-  border: 1px solid red;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  background:#ffffff;
+  padding: 20px 30px;
+  height:100vh;
+  position:fixed;
 }
 
 .index .sidebar .top {
@@ -28,14 +30,33 @@ ul, ol, li {
   flex-flow: column;
 }
 
-.sidebar button {
-  padding: 5px 10px;
-  margin: 15px;
+.index .sidebar .exit{
+  position:absolute;
+  bottom:5px;
+
 }
+
+
+.sidebar .icon {
+  width: 2em; height: 2em;
+  vertical-align: -0.15em;
+  fill: #b7d74f;
+  overflow: hidden;
+  margin: 15px;
+  cursor: pointer;
+}
+.sidebar .icon:hover{
+  fill: #df6138;
+
+}
+
+
+
+
 
 .index > main {
   width: 755px;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 20px auto;
   padding-bottom: 20px;
   /*border: 1px solid red;*/
   /*flex-grow: 1;*/
@@ -45,6 +66,7 @@ ul, ol, li {
   flex-flow: column;
   overflow: auto;
   min-height: 100vh;
+  background:#F8F8F8;
 }
 
 /*.index > main .introduction, .index > main .skills, .index > main .projects {*/
@@ -57,6 +79,7 @@ ul, ol, li {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  background: #DFE0E2;
 }
 
 .introduction .logoWrapper {
@@ -82,6 +105,7 @@ ul, ol, li {
 
 .introduction .jobTitle {
   font-size: 20px;
+
 }
 
 .introduction .info {
@@ -89,8 +113,10 @@ ul, ol, li {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
-  font-family: '	SimSun',sans-serif;
-  color: #414348;
+  font-family: 'Verdana',sans-serif;
+  /*font-weight: bold;*/
+  /*color: #414348;*/
+  font-size: 14px;
 }
 
 .introduction .info > span {
@@ -115,6 +141,8 @@ ul, ol, li {
   font-weight: bold;
   font-size:17px;
   color: #2a2a2a;
+  font-family: 'Times New Roman',sans-serif;
+
 }
 
 .education .content,.skills .content,.projects .content{
@@ -123,6 +151,8 @@ ul, ol, li {
   flex-grow: 1;
   padding:18px;
   text-align:justify;
+  font-family: 'Times New Roman',sans-serif;
+
 }
 
 .education .content::after,.skills .content::after,.projects .content::after{

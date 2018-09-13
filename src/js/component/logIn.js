@@ -2,13 +2,19 @@
   window.Login = {
     template: `
     <div class="logIn">
-      <h2>登录</h2>
+      <h2>Log in your account</h2>
       <form @submit.prevent="onLogIn">
         <div class="row">
-          <label>账号 <input type="text" v-model="logInInfo.username"></label>
+          <label>账号 </label>
+        </div> 
+        <div class="row">
+          <input type="text" v-model="logInInfo.username">
         </div>
         <div class="row">
-          <label>密码 <input type="text" v-model="logInInfo.password"></label>
+          <label>密码</label>
+        </div> 
+        <div class="row">
+          <input type="text" v-model="logInInfo.password">
         </div>
         <button type="submit">登录</button>
         <router-link to="/register">注册</router-link>

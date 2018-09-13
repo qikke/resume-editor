@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csshake": "^1.5.3",
     "leancloud-storage": "^3.9.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
