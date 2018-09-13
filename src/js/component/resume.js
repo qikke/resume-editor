@@ -24,9 +24,7 @@
       <div class="education">
         <span class="title">EDUCATION</span>      
         <div class="content">
-          <span>
-            The scholars imported the engine to consider the spoiled happy windswept to start the aircraft to develop a healthy and green way of happening. The speed of the plane on the plane was speeding up. Christmas was happy. Buddhism seemed to be a happy Christmas visit to the nine-air Aston fly. Aston flies healthy and is vacant.
-          </span>
+          <editable-span  :value="resume.education" @edit="onEdit('education',$event)"></editable-span>
         </div>
       </div> 
       
@@ -71,56 +69,11 @@
             </p>
             <span class="del" @click="delProjects(index)" v-if="mode === 'edit'">x</span>
           </li>
-          <li @click="addProjects" v-if="mode === 'edit'" class="add">+</li>
+          <span @click="addProjects" v-if="mode === 'edit'" class="add">+</span>
         </ol>
         </div>
       </div>
-      
-
-      <!---->
-      <!--<div class="skills">-->
-        <!--<h2>技能</h2>-->
-        <!--<ol>-->
-          <!--<li v-for="(skill,index) in resume.skills">-->
-            <!--<div>-->
-              <!--<editable-span  :value="resume.skills[index].name" @edit="onEdit('skills['+index+'].name',$event)"></editable-span>-->
-            <!--</div>-->
-            <!--<div>-->
-              <!--<editable-span     :value="resume.skills[index].description" @edit="onEdit('skills['+index+'].description',$event)"></editable-span>-->
-            <!--</div>-->
-            <!--<span class="del" @click="delSkills(index)" v-if="mode === 'edit'">x</span>-->
-          <!--</li>-->
-          <!--<li @click="addSkills" v-if="mode === 'edit'" class="add">+</li>-->
-        <!--</ol>-->
-      <!--</div>-->
-      <!---->
-      <!---->
-      <!--<div class="projects">-->
-        <!--<h2>项目经历</h2>-->
-        <!--<ol>-->
-          <!--<li v-for="(project,index) in resume.projects">-->
-            <!--<h3>-->
-              <!--<editable-span :value="resume.projects[index].name" -->
-                             <!--@edit="onEdit('projects['+index+'].name',$event)"></editable-span>-->
-            <!--</h3>-->
-            <!--<p>-->
-              <!--<editable-span :value="resume.projects[index].url" -->
-                             <!--@edit="onEdit('projects['+index+'].url',$event)"></editable-span>-->
-            <!--</p>-->
-            <!--<p class="intro">-->
-              <!--<editable-span :value="resume.projects[index].skills" -->
-                             <!--@edit="onEdit('projects['+index+'].skills',$event)"></editable-span>-->
-            <!--</p>-->
-            <!--<p class="description">-->
-              <!--<editable-span :value="resume.projects[index].description" -->
-                             <!--@edit="onEdit('projects['+index+'].description',$event)"></editable-span>-->
-            <!--</p>-->
-            <!--<span class="del" @click="delProjects(index)" v-if="mode === 'edit'">x</span>-->
-          <!--</li>-->
-          <!--<li @click="addProjects" v-if="mode === 'edit'" class="add">+</li>-->
-        <!--</ol>-->
-      <!--</div>-->
-    <!--</main>-->
+     </main>
   `,
     methods: {
       onEdit(key, value) {

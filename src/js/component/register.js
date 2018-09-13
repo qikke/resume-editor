@@ -19,7 +19,7 @@
           </div>
          </div>
          <div class="signUpRow">
-             <span @click="$router.replace('/')" class="signUp">关闭</span>
+             <span @click="$router.replace('/')" class="signUp">Close</span>
          </div>
         </form>
       </div>

@@ -1,16 +1,60 @@
-.page > .share{
-  position:absolute;
-  width: 500px;
-  height:300px;
-  left:0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  margin:auto auto;
-  border:1px solid red;
-  background:white;
+
+
+.shareWrapper{
+  width:100%;
+  height:100vh;
+  background: #eee;
+  position:relative;
+
 }
 
-.page > .share textarea{
+.page .share{
+   position:absolute;
+   width: 400px;
+   height:300px;
+   left:0;
+   bottom: 0;
+   right: 0;
+   top: 0;
+   margin:auto auto;
+  box-shadow: 0 3px 14px -1px rgba(176, 166, 176, 1);
+  border-radius: 5px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+ }
+
+.page .share textarea{
   word-break: break-all;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+.page .share .title{
+  padding: 5px 10px;
+}
+
+
+.buttonWrapper{
+  height: 500px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background: #F9FAFB;
+  flex-grow: 0;
+}
+
+.page .share .close,.page .share .copy{
+  width: 286px;
+  margin:10px auto;
+  border: 1px solid #eee;
+  height: 36px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 36px;
+  background: #FDFDFD;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.75);
+  cursor: pointer;
 }

@@ -18,17 +18,17 @@
           <svg class="icon shake-little" aria-hidden="true" @click="window.print()">
             <use xlink:href="#icon-dayin"></use>
           </svg>
-          <svg class="icon shake-little" aria-hidden="true" @click="$router.replace('/skin')">
+          <svg class="icon shake-little" aria-hidden="true">
             <use xlink:href="#icon-pifu"></use>
+          </svg>   
+          
+          <svg class="icon login shake-little" aria-hidden="true" @click="onLogIn">
+            <use xlink:href="#icon-login"></use>
           </svg>   
           
           <svg class="icon exit shake-little" aria-hidden="true" @click="onLogOut">
             <use xlink:href="#icon-tuichudenglu"></use>
           </svg> 
-        
-        
-          
-          
         </div>
       </div>
   `,
@@ -48,6 +48,10 @@
         }
       },
       onLogOut() {
+        if(!this.currentUser){
+          alert("您没有登录")
+          return
+        }
         AV.User.logOut()
         this.currentUser = null
         alert('登出成功')
@@ -61,6 +65,13 @@
         this.$router.replace('/share')
         this.$store.commit('createShareUrl', window.location.host + window.location.pathname + '?_id=' + this.currentUser.id)
       },
+      onLogIn(){
+        if(this.currentUser){
+          alert("您已经登录了")
+          return
+        }
+        this.$router.replace('/logIn')
+      }
     },
     computed: {
       resume() {

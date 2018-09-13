@@ -28,6 +28,7 @@
           {name: 'Web demo', url: 'http://xxxxxx.com', skills: 'CSS3 H5 ES6', description: 'The speed of the plane on the plane was speeding up. Christmas was happy. Buddhism seemed to be a happy Christmas visit to the nine-air Aston fly. Aston flies healthy and is vacant.'},
           {name: 'phone music player',url: 'http://xxxxxx.com',skills: 'CSS3 H5 ES6',description: 'The speed of the plane on the plane was speeding up. Christmas was happy. Buddhism seemed to be a happy Christmas visit to the nine-air Aston fly. Aston flies healthy and is vacant.'}
           ],
+        education:' The scholars imported the engine to consider the spoiled happy windswept to start the aircraft to develop a healthy and green way of happening. The speed of the plane on the plane was speeding up. Christmas was happy. Buddhism seemed to be a happy Christmas visit to the nine-air Aston fly. Aston flies healthy and is vacant.'
       },
       currentUser: null,
       skin: 'default',
@@ -94,8 +95,6 @@
           })
         }
       },
-
-
     },
     computed: {
       skin() {
