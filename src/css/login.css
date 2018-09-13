@@ -1,16 +1,100 @@
+
+.logInWrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  /*background: url("../img/whouse4.jpg") no-repeat;*/
+  /*background-position: center;*/
+  /*background-size: cover;*/
+  background: #E8E8E8;
+}
+
 .page .register, .page .logIn {
-  width: 500px;
-  height: 500px;
+  width: 24%;
+  height: 400px;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   margin: auto auto;
-  box-shadow: 0 3px 14px -1px rgba(176,166,176,1);
+  box-shadow: 0 3px 14px -1px rgba(176, 166, 176, 1);
   border-radius: 5px;
   background: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /*align-items: center;*/
+  overflow: hidden;
+
 }
+
+.logInRow{
+  padding: 0 30px;
+
+}
+
+.logIn .title {
+  padding: 10px 0;
+  font-family: 'Times New Roman', sans-serif;
+  text-align: center;
+}
+
+.row {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  width: 100%;
+  border: 0;
+  background-color: #5C6BC4;
+  height: 36px;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+
+.signUpRow{
+  background: #F9FAFB;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+.signUp {
+  margin: 45px 30px 0 30px;
+  text-decoration: none;
+  color: black;
+  display: block;
+  border: 1px solid #eee;
+  height: 36px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 36px;
+  background: #FDFDFD;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.75);
+}
+
+.logIn input {
+  height: 32px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: inherit;
+}
+
+.logIn input:hover {
+  border-color: #666;
+}
+
+.logIn input:focus {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+
+
+

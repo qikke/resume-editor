@@ -142,7 +142,6 @@ ul, ol, li {
   font-size:17px;
   color: #2a2a2a;
   font-family: 'Times New Roman',sans-serif;
-
 }
 
 .education .content,.skills .content,.projects .content{
@@ -152,7 +151,6 @@ ul, ol, li {
   padding:18px;
   text-align:justify;
   font-family: 'Times New Roman',sans-serif;
-
 }
 
 .education .content::after,.skills .content::after,.projects .content::after{

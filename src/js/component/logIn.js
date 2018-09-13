@@ -1,25 +1,28 @@
 {
   window.Login = {
     template: `
-    <div class="logIn">
-      <h2>Log in your account</h2>
-      <form @submit.prevent="onLogIn">
-        <div class="row">
-          <label>账号 </label>
-        </div> 
-        <div class="row">
-          <input type="text" v-model="logInInfo.username">
-        </div>
-        <div class="row">
-          <label>密码</label>
-        </div> 
-        <div class="row">
-          <input type="text" v-model="logInInfo.password">
-        </div>
-        <button type="submit">登录</button>
-        <router-link to="/register">注册</router-link>
-        <button type="button" @click="">关闭</button>
-      </form>
+    <div class="logInWrapper">
+      <div class="logIn">
+        <h2 class="title">Log in your account</h2>
+        <form @submit.prevent="onLogIn">
+        <div class="logInRow">
+           <div class="row">
+            <span class="account">Account </span>
+            <input type="text" v-model="logInInfo.username">
+          </div> 
+          <div class="row">
+            <span class="password">Password</span>
+            <input type="text" v-model="logInInfo.password">
+          </div> 
+          <div class="row">
+            <button type="submit" class="submit">log in</button>
+          </div>
+         </div>
+         <div class="signUpRow">
+            <router-link to="/register" class="signUp">sign up</router-link>
+         </div>
+        </form>
+      </div>
     </div>
   `,
     data() {
